@@ -214,13 +214,18 @@ export default function KanjiEvolutionPage() {
 
               <AnimatePresence>
                 {quizAnswer !== null && (
-                  <motion.p
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`mt-4 text-2xl font-black ${quizAnswer === quizIdx ? "text-green-600" : "text-red-500"}`}
+                    className="mt-4 space-y-2"
                   >
-                    {quizAnswer === quizIdx ? "🎉 Correct!" : `❌ It was ${kanji[quizIdx].meaning} (${kanji[quizIdx].romaji})`}
-                  </motion.p>
+                    <p className={`text-2xl font-black ${quizAnswer === quizIdx ? "text-green-600" : "text-red-500"}`}>
+                      {quizAnswer === quizIdx ? "🎉 Correct!" : `❌ It was ${kanji[quizIdx].meaning} (${kanji[quizIdx].romaji})`}
+                    </p>
+                    <p className="text-3xl font-black text-purple-500">
+                      {kanji[quizIdx].hiragana}
+                    </p>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </div>
