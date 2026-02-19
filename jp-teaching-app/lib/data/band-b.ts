@@ -2,12 +2,12 @@ export const numbers = [
   { num: 1, jp: "いち", romaji: "Ichi", kanji: "一" },
   { num: 2, jp: "に", romaji: "Ni", kanji: "二" },
   { num: 3, jp: "さん", romaji: "San", kanji: "三" },
-  { num: 4, jp: "し / よん", romaji: "Shi / Yon", kanji: "四" },
+  { num: 4, jp: "よん", romaji: "Yon", kanji: "四" },
   { num: 5, jp: "ご", romaji: "Go", kanji: "五" },
   { num: 6, jp: "ろく", romaji: "Roku", kanji: "六" },
-  { num: 7, jp: "しち / なな", romaji: "Shichi / Nana", kanji: "七" },
+  { num: 7, jp: "なな", romaji: "Nana", kanji: "七" },
   { num: 8, jp: "はち", romaji: "Hachi", kanji: "八" },
-  { num: 9, jp: "く / きゅう", romaji: "Ku / Kyuu", kanji: "九" },
+  { num: 9, jp: "きゅう", romaji: "Kyuu", kanji: "九" },
   { num: 10, jp: "じゅう", romaji: "Juu", kanji: "十" },
 ];
 

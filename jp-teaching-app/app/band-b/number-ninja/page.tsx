@@ -65,6 +65,7 @@ export default function NumberNinjaPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
+          <p className="text-7xl mb-2">🥷</p>
           <h1 className="text-4xl font-black text-gray-900">
             <Furigana text="かず" reading="kazu" />
             <span>ゲーム</span>
