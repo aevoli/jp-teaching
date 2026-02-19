@@ -11,6 +11,8 @@ export default function ColourSpinnerPage() {
   const [rotation, setRotation] = useState(0);
   const spinCount = useRef(0);
 
+  const segmentAngle = 360 / colours.length;
+
   const spin = () => {
     if (spinning) return;
     setSpinning(true);
@@ -19,15 +21,14 @@ export default function ColourSpinnerPage() {
     setRotation(newRotation);
 
     setTimeout(() => {
-      const idx = Math.floor(Math.random() * colours.length);
+      const normalised = ((newRotation % 360) + 360) % 360;
+      const idx = Math.floor(((360 - normalised) % 360) / segmentAngle) % colours.length;
       setCurrent(idx);
       setSpinning(false);
       spinCount.current += 1;
       speak(colours[idx].jp);
     }, 2000);
   };
-
-  const segmentAngle = 360 / colours.length;
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-violet-50 p-6 pt-20">
