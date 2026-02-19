@@ -79,10 +79,10 @@ export default function HeadsShouldersPage() {
           <div className="space-y-4">
             <div className="bg-blue-50 rounded-2xl p-5 text-center">
               <p className="text-xl font-black text-blue-800 mb-1">🎵 Heads, Shoulders, Knees and Toes</p>
-              <p className="text-gray-600">Tap each body part to hear it — touch it on yourself at the same time!</p>
+              <p className="text-gray-600">Tap each card to hear it in English — and see the Japanese too!</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {bodyParts.map((bp, i) => (
+              {bodyParts.slice(0, 4).map((bp, i) => (
                 <motion.button
                   key={i}
                   whileTap={{ scale: 0.93 }}
@@ -91,12 +91,15 @@ export default function HeadsShouldersPage() {
                 >
                   <p className="text-5xl mb-2">{bp.emoji}</p>
                   <p className="text-2xl font-black text-gray-900">{bp.en}</p>
+                  <p className="text-2xl font-black text-blue-700 mt-1">{bp.jp}</p>
+                  <p className="text-lg font-bold text-blue-500">{bp.romaji}</p>
                 </motion.button>
               ))}
             </div>
             <div className="bg-white rounded-2xl shadow p-5 text-center">
               <p className="font-black text-gray-700 mb-2">🎵 Song order:</p>
-              <p className="text-xl text-gray-600">Head → Shoulders → Knees → Toes → Eyes → Ears → Mouth → Nose</p>
+              <p className="text-xl text-gray-600">Head → Shoulders → Knees → Toes</p>
+              <p className="text-base text-blue-600 mt-1">あたま → かた → ひざ → つまさき</p>
             </div>
           </div>
         )}
