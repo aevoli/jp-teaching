@@ -13,9 +13,9 @@ const activities = [
   {
     href: "/band-b/body-parts-dance",
     emoji: "🕺",
-    title: "Body Parts Dance",
+    title: "Heads, Shoulders, Knees & Toes",
     titleJp: "からだのうた",
-    desc: "Head, shoulders, knees and toes — in Japanese!",
+    desc: "Learn the classic song in English, then try it in Japanese!",
     bg: "from-blue-400 to-cyan-500",
   },
   {
