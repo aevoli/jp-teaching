@@ -6,7 +6,128 @@ import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { greetings } from "@/lib/data/band-a";
 
-type Tab = "learn" | "together" | "video";
+type Tab = "learn" | "match" | "together" | "video";
+
+function MatchTab() {
+  const [matched, setMatched] = useState<Record<string, string>>({});
+  const [dragging, setDragging] = useState<string | null>(null);
+  const [wrong, setWrong] = useState<string | null>(null);
+  const [complete, setComplete] = useState(false);
+
+  const [romajis, setRomajis] = useState<string[]>(() =>
+    [...greetings].sort(() => Math.random() - 0.5).map((g) => g.romaji)
+  );
+  const targets = greetings.map((g) => ({ en: g.en, romaji: g.romaji }));
+
+  const handleDrop = (targetRomaji: string) => {
+    if (!dragging) return;
+    if (dragging === targetRomaji) {
+      const next = { ...matched, [targetRomaji]: dragging };
+      setMatched(next);
+      speak(greetings.find((g) => g.romaji === targetRomaji)?.jp ?? "");
+      if (Object.keys(next).length === greetings.length) setComplete(true);
+    } else {
+      setWrong(targetRomaji);
+      setTimeout(() => setWrong(null), 700);
+    }
+    setDragging(null);
+  };
+
+  const reset = () => {
+    setRomajis([...greetings].sort(() => Math.random() - 0.5).map((g) => g.romaji));
+    setMatched({});
+    setDragging(null);
+    setWrong(null);
+    setComplete(false);
+  };
+
+  const unmatched = romajis.filter((r: string) => !Object.values(matched).includes(r));
+
+  return (
+    <div className="space-y-6">
+      <p className="text-center text-gray-600 font-bold">Drag each romaji to its English meaning!</p>
+
+      <div className="flex flex-wrap gap-3 justify-center min-h-14 bg-pink-50 rounded-2xl p-4">
+        {unmatched.map((r) => (
+          <motion.div
+            key={r}
+            draggable
+            onDragStart={() => setDragging(r)}
+            onDragEnd={() => setDragging(null)}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setDragging(dragging === r ? null : r)}
+            className={`px-5 py-3 rounded-xl font-black text-lg cursor-grab active:cursor-grabbing select-none transition-all shadow ${
+              dragging === r
+                ? "bg-pink-500 text-white scale-105 shadow-lg"
+                : "bg-white text-pink-700 border-2 border-pink-200 hover:border-pink-400"
+            }`}
+          >
+            {r}
+          </motion.div>
+        ))}
+        {unmatched.length === 0 && !complete && (
+          <p className="text-gray-400 text-sm self-center">All placed!</p>
+        )}
+      </div>
+
+      <div className="space-y-3">
+        {targets.map((t) => (
+          <div
+            key={t.romaji}
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={() => handleDrop(t.romaji)}
+            onClick={() => dragging && handleDrop(t.romaji)}
+            className={`flex items-center gap-4 rounded-2xl p-4 border-2 transition-all ${
+              matched[t.romaji]
+                ? "bg-green-50 border-green-400"
+                : wrong === t.romaji
+                ? "bg-red-50 border-red-400"
+                : dragging
+                ? "border-pink-300 bg-pink-50 cursor-pointer"
+                : "border-gray-200 bg-white"
+            }`}
+          >
+            <span className="text-lg font-black text-gray-800 w-48">{t.en}</span>
+            <div className="flex-1 min-h-10 flex items-center">
+              {matched[t.romaji] ? (
+                <motion.span
+                  initial={{ scale: 0.7, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="px-4 py-2 bg-green-500 text-white rounded-xl font-black text-lg"
+                >
+                  ✓ {matched[t.romaji]}
+                </motion.span>
+              ) : wrong === t.romaji ? (
+                <span className="text-red-400 font-bold">Try again!</span>
+              ) : (
+                <span className="text-gray-300 font-bold border-b-2 border-dashed border-gray-300 w-32 block" />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {complete && (
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-green-100 rounded-3xl p-8 text-center"
+          >
+            <p className="text-5xl mb-2">🎉</p>
+            <p className="text-3xl font-black text-green-700">Perfect match!</p>
+            <button
+              onClick={reset}
+              className="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-black px-8 py-3 rounded-2xl transition-all touch-manipulation"
+            >
+              Play again
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function GreetingsKaraokePage() {
   const [tab, setTab] = useState<Tab>("learn");
@@ -32,11 +153,12 @@ export default function GreetingsKaraokePage() {
             <Furigana text="のうた" reading="no uta" />
           </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Greetings Song</p>
-          <p className="text-gray-500 mt-2">Learn Japanese greetings with actions!</p>
+          <p className="text-gray-500 mt-2">Learn Japanese greetings!</p>
         </div>
 
         <div className="flex gap-3 justify-center mb-6 flex-wrap">
           <button onClick={() => setTab("learn")} className={tabClass("learn")}>📖 Learn</button>
+          <button onClick={() => setTab("match")} className={tabClass("match")}>🧩 Match</button>
           <button onClick={() => setTab("together")} className={tabClass("together")}>🎤 All Together</button>
           <button onClick={() => setTab("video")} className={tabClass("video")}>🎬 Video</button>
         </div>
@@ -54,10 +176,6 @@ export default function GreetingsKaraokePage() {
                 <p className="text-lg text-gray-500 mb-2">{greeting.en}</p>
                 <p className="text-7xl font-black text-gray-900 mb-3">{greeting.jp}</p>
                 <p className="text-3xl font-bold text-pink-600 mb-6">{greeting.romaji}</p>
-
-                <div className="bg-pink-50 rounded-2xl p-4 mb-6">
-                  <p className="text-lg font-bold text-pink-700">Action: {greeting.action}</p>
-                </div>
 
                 <button
                   onClick={handleSpeak}
@@ -100,6 +218,8 @@ export default function GreetingsKaraokePage() {
           </>
         )}
 
+        {tab === "match" && <MatchTab />}
+
         {tab === "together" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {greetings.map((g, i) => (
@@ -111,7 +231,6 @@ export default function GreetingsKaraokePage() {
                 <p className="text-3xl font-black text-gray-900">{g.jp}</p>
                 <p className="text-xl font-bold text-pink-600">{g.romaji}</p>
                 <p className="text-gray-500">{g.en}</p>
-                <p className="text-sm text-pink-400 mt-1">{g.action}</p>
               </button>
             ))}
           </div>

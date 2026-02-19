@@ -30,6 +30,6 @@ export const greetings = [
   { en: "I am well!", jp: "わたしはげんきです", romaji: "Watashi wa genki desu", hiragana: "わたしはげんきです", action: "Thumbs up and bow �🙇" },
   { en: "Hello / Good afternoon", jp: "こんにちは", romaji: "Konnichiwa", hiragana: "こんにちは", action: "Wave and bow 👋🙇" },
   { en: "Good evening", jp: "こんばんは", romaji: "Konbanwa", hiragana: "こんばんは", action: "Bow deeply �" },
-  { en: "It's already night!", jp: "もうよるです", romaji: "Mou yoru desu", hiragana: "もうよるです", action: "Point to the sky and yawn 🌙�" },
+  { en: "See you!", jp: "またね", romaji: "Mata ne", hiragana: "またね", action: "" },
   { en: "Good night", jp: "おやすみ", romaji: "Oyasumi", hiragana: "おやすみ", action: "Put hands together by cheek like sleeping �" },
 ];
