@@ -1,0 +1,97 @@
+export const hiragana = [
+  { char: "あ", romaji: "a" },
+  { char: "い", romaji: "i" },
+  { char: "う", romaji: "u" },
+  { char: "え", romaji: "e" },
+  { char: "お", romaji: "o" },
+  { char: "か", romaji: "ka" },
+  { char: "き", romaji: "ki" },
+  { char: "く", romaji: "ku" },
+  { char: "け", romaji: "ke" },
+  { char: "こ", romaji: "ko" },
+  { char: "さ", romaji: "sa" },
+  { char: "し", romaji: "shi" },
+  { char: "す", romaji: "su" },
+  { char: "せ", romaji: "se" },
+  { char: "そ", romaji: "so" },
+];
+
+export const secretMessages = [
+  { hiragana: ["す", "し"], answer: "sushi", hint: "A Japanese food 🍣" },
+  { hiragana: ["ね", "こ"], answer: "neko", hint: "An animal that says nyaa 🐈" },
+  { hiragana: ["い", "ぬ"], answer: "inu", hint: "An animal that says wan-wan 🐕" },
+  { hiragana: ["さ", "く", "ら"], answer: "sakura", hint: "Japan's famous pink flower 🌸" },
+  { hiragana: ["か", "さ"], answer: "kasa", hint: "You use this in the rain ☂️" },
+];
+
+export const jikoshoukaiInterests = [
+  { en: "Football", jp: "サッカー", romaji: "Sakkaa", emoji: "⚽" },
+  { en: "Anime", jp: "アニメ", romaji: "Anime", emoji: "🎌" },
+  { en: "Music", jp: "おんがく", romaji: "Ongaku", emoji: "🎵" },
+  { en: "Art", jp: "びじゅつ", romaji: "Bijutsu", emoji: "🎨" },
+  { en: "Gaming", jp: "ゲーム", romaji: "Geemu", emoji: "🎮" },
+  { en: "Reading", jp: "どくしょ", romaji: "Dokusho", emoji: "📚" },
+  { en: "Swimming", jp: "すいえい", romaji: "Suiei", emoji: "🏊" },
+  { en: "Cooking", jp: "りょうり", romaji: "Ryouri", emoji: "🍳" },
+  { en: "Dancing", jp: "ダンス", romaji: "Dansu", emoji: "💃" },
+  { en: "Animals", jp: "どうぶつ", romaji: "Doubutsu", emoji: "🐾" },
+];
+
+export const kanji = [
+  {
+    character: "山",
+    meaning: "Mountain",
+    romaji: "Yama",
+    emoji: "🏔️",
+    pictograph: "A mountain with three peaks",
+    description: "Three peaks of a mountain",
+  },
+  {
+    character: "川",
+    meaning: "River",
+    romaji: "Kawa",
+    emoji: "🌊",
+    pictograph: "Three flowing streams",
+    description: "Three lines of flowing water",
+  },
+  {
+    character: "木",
+    meaning: "Tree",
+    romaji: "Ki",
+    emoji: "🌳",
+    pictograph: "A tree with branches and roots",
+    description: "Trunk with branches above and roots below",
+  },
+  {
+    character: "日",
+    meaning: "Sun / Day",
+    romaji: "Hi / Nichi",
+    emoji: "☀️",
+    pictograph: "A circle with a dot in the middle",
+    description: "The sun with its bright centre",
+  },
+  {
+    character: "月",
+    meaning: "Moon / Month",
+    romaji: "Tsuki / Gatsu",
+    emoji: "🌙",
+    pictograph: "A crescent moon",
+    description: "The crescent shape of the moon",
+  },
+  {
+    character: "火",
+    meaning: "Fire",
+    romaji: "Hi / Ka",
+    emoji: "🔥",
+    pictograph: "Flames rising upward",
+    description: "Flames leaping up from a base",
+  },
+  {
+    character: "水",
+    meaning: "Water",
+    romaji: "Mizu / Sui",
+    emoji: "💧",
+    pictograph: "Water flowing in all directions",
+    description: "A central stream with droplets branching out",
+  },
+];
