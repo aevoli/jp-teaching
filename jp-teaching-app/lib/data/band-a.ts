@@ -26,9 +26,10 @@ export const colours = [
 
 export const greetings = [
   { en: "Good morning", jp: "おはよう", romaji: "Ohayou", hiragana: "おはよう", action: "Bow slightly 🙇" },
+  { en: "Are you well?", jp: "げんきですか？", romaji: "Genki desu ka?", hiragana: "げんきですか？", action: "Tilt head and smile 😊" },
+  { en: "I am well!", jp: "わたしはげんきです", romaji: "Watashi wa genki desu", hiragana: "わたしはげんきです", action: "Thumbs up and bow �🙇" },
   { en: "Hello / Good afternoon", jp: "こんにちは", romaji: "Konnichiwa", hiragana: "こんにちは", action: "Wave and bow 👋🙇" },
-  { en: "Good evening", jp: "こんばんは", romaji: "Konbanwa", hiragana: "こんばんは", action: "Bow deeply 🙇" },
-  { en: "Goodbye", jp: "さようなら", romaji: "Sayounara", hiragana: "さようなら", action: "Wave goodbye 👋" },
-  { en: "Thank you", jp: "ありがとう", romaji: "Arigatou", hiragana: "ありがとう", action: "Bow with hands together 🙏" },
-  { en: "Excuse me / Sorry", jp: "すみません", romaji: "Sumimasen", hiragana: "すみません", action: "Small bow and hand raise 🙇" },
+  { en: "Good evening", jp: "こんばんは", romaji: "Konbanwa", hiragana: "こんばんは", action: "Bow deeply �" },
+  { en: "It's already night!", jp: "もうよるです", romaji: "Mou yoru desu", hiragana: "もうよるです", action: "Point to the sky and yawn 🌙�" },
+  { en: "Good night", jp: "おやすみ", romaji: "Oyasumi", hiragana: "おやすみ", action: "Put hands together by cheek like sleeping �" },
 ];
