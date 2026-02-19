@@ -35,7 +35,7 @@ export default function AnimalSoundsPage() {
           <p className="text-gray-500 mt-2">Tap an animal to hear its Japanese name, then reveal its sound!</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mb-8">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-5 mb-8">
           {animals.map((animal, idx) => (
             <motion.button
               key={idx}
