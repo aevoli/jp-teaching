@@ -86,15 +86,16 @@ export default function ColourSpinnerPage() {
                   exit={{ scale: 0.7, opacity: 0 }}
                   className="rounded-3xl p-8 text-center shadow-xl border-4 border-white min-w-56"
                   style={{
-                    backgroundColor: colours[current].en === "White" ? "#6b7280" : colours[current].hex,
+                    backgroundColor: colours[current].hex,
+                    border: colours[current].en === "White" ? "3px solid #d1d5db" : undefined,
                   }}
                 >
-                  <p className="text-5xl font-black text-white drop-shadow-lg">{colours[current].jp}</p>
-                  <p className="text-3xl font-bold text-white/90 drop-shadow">{colours[current].romaji}</p>
-                  <p className="text-2xl text-white/80 drop-shadow">{colours[current].en}</p>
+                  <p className={`text-5xl font-black drop-shadow-lg ${colours[current].en === "White" ? "text-gray-900" : "text-white"}`}>{colours[current].jp}</p>
+                  <p className={`text-3xl font-bold drop-shadow ${colours[current].en === "White" ? "text-gray-700" : "text-white/90"}`}>{colours[current].romaji}</p>
+                  <p className={`text-2xl drop-shadow ${colours[current].en === "White" ? "text-gray-600" : "text-white/80"}`}>{colours[current].en}</p>
                   <button
                     onClick={() => speak(colours[current!].jp)}
-                    className="mt-3 bg-white/30 hover:bg-white/50 text-white font-bold px-5 py-2 rounded-xl transition-all touch-manipulation"
+                    className={`mt-3 font-bold px-5 py-2 rounded-xl transition-all touch-manipulation ${colours[current].en === "White" ? "bg-gray-100 hover:bg-gray-200 text-gray-800" : "bg-white/30 hover:bg-white/50 text-white"}`}
                   >
                     🔊 Hear again
                   </button>
@@ -110,10 +111,10 @@ export default function ColourSpinnerPage() {
               key={i}
               onClick={() => { setCurrent(i); speak(c.jp); }}
               className="rounded-2xl p-4 text-center shadow hover:scale-105 active:scale-95 transition-all touch-manipulation border-2 border-white"
-              style={{ backgroundColor: c.en === "White" ? "#6b7280" : c.hex }}
+              style={{ backgroundColor: c.hex, border: c.en === "White" ? "2px solid #d1d5db" : undefined }}
             >
-              <p className="text-base font-black text-white drop-shadow">{c.jp}</p>
-              <p className="text-sm text-white/90 drop-shadow">{c.romaji}</p>
+              <p className={`text-base font-black drop-shadow ${c.en === "White" ? "text-gray-900" : "text-white"}`}>{c.jp}</p>
+              <p className={`text-sm drop-shadow ${c.en === "White" ? "text-gray-600" : "text-white/90"}`}>{c.romaji}</p>
             </button>
           ))}
         </div>
