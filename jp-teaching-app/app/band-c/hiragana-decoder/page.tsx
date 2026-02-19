@@ -11,7 +11,7 @@ export default function HiraganaDecoderPage() {
   const [messageIdx, setMessageIdx] = useState(0);
   const [selected, setSelected] = useState<string[]>([]);
   const [solved, setSolved] = useState(false);
-  const [showHint, setShowHint] = useState(false);
+  const [showEmojiHint, setShowEmojiHint] = useState(false);
 
   const message = secretMessages[messageIdx];
 
@@ -31,13 +31,13 @@ export default function HiraganaDecoderPage() {
     setMessageIdx((i) => (i + 1) % secretMessages.length);
     setSelected([]);
     setSolved(false);
-    setShowHint(false);
+    setShowEmojiHint(false);
   };
 
   const reset = () => {
     setSelected([]);
     setSolved(false);
-    setShowHint(false);
+    setShowEmojiHint(false);
   };
 
   return (
@@ -84,17 +84,6 @@ export default function HiraganaDecoderPage() {
                 </motion.button>
               ))}
             </div>
-            <div className="bg-indigo-50 rounded-2xl p-5 mt-4">
-              <h3 className="font-black text-indigo-800 text-lg mb-2">🔑 Quick Reference</h3>
-              <div className="grid grid-cols-7 gap-2 text-center text-sm">
-                {hiragana.map((h, i) => (
-                  <div key={i} className="bg-white rounded-xl p-2">
-                    <span className="text-2xl font-black">{h.char}</span>
-                    <span className="text-indigo-600 font-bold block">{h.romaji}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         ) : (
           <div className="space-y-6">
@@ -133,7 +122,7 @@ export default function HiraganaDecoderPage() {
                     <p className="text-3xl font-black text-green-600">
                       {message.answer.toUpperCase()}!
                     </p>
-                    <p className="text-xl text-gray-600">{message.hint}</p>
+                    <p className="text-xl text-gray-600">{message.textHint} {message.emojiHint}</p>
                     <button
                       onClick={nextMessage}
                       className="mt-3 bg-indigo-500 hover:bg-indigo-600 active:scale-95 text-white font-black px-8 py-3 rounded-2xl transition-all touch-manipulation"
@@ -144,18 +133,31 @@ export default function HiraganaDecoderPage() {
                 )}
               </AnimatePresence>
 
-              {!solved && showHint && (
-                <p className="text-indigo-600 font-bold mt-2">Hint: {message.hint}</p>
+              {!solved && (
+                <div className="mt-3 space-y-2">
+                  <p className="text-indigo-600 font-bold">Hint: {message.textHint}</p>
+                  {showEmojiHint && (
+                    <motion.p
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className="text-5xl"
+                    >
+                      {message.emojiHint}
+                    </motion.p>
+                  )}
+                </div>
               )}
 
               {!solved && (
                 <div className="flex gap-3 justify-center mt-4">
+                  {!showEmojiHint && (
                   <button
-                    onClick={() => setShowHint(true)}
+                    onClick={() => setShowEmojiHint(true)}
                     className="bg-yellow-100 hover:bg-yellow-200 text-yellow-800 font-bold px-4 py-2 rounded-xl transition-all touch-manipulation"
                   >
-                    💡 Hint
+                    💡 Emoji Hint
                   </button>
+                  )}
                   <button
                     onClick={reset}
                     className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold px-4 py-2 rounded-xl transition-all touch-manipulation"

@@ -40,11 +40,11 @@ export const hiragana = [
 ];
 
 export const secretMessages = [
-  { hiragana: ["す", "し"], answer: "sushi", hint: "A Japanese food 🍣" },
-  { hiragana: ["ね", "こ"], answer: "neko", hint: "An animal that says nyaa 🐈" },
-  { hiragana: ["い", "ぬ"], answer: "inu", hint: "An animal that says wan-wan 🐕" },
-  { hiragana: ["さ", "く", "ら"], answer: "sakura", hint: "Japan's famous pink flower 🌸" },
-  { hiragana: ["か", "さ"], answer: "kasa", hint: "You use this in the rain ☂️" },
+  { hiragana: ["す", "し"], answer: "sushi", textHint: "A Japanese food", emojiHint: "🍣" },
+  { hiragana: ["ね", "こ"], answer: "neko", textHint: "An animal that says nyaa", emojiHint: "🐈" },
+  { hiragana: ["い", "ぬ"], answer: "inu", textHint: "An animal that says wan-wan", emojiHint: "🐕" },
+  { hiragana: ["さ", "く", "ら"], answer: "sakura", textHint: "Japan's famous pink flower", emojiHint: "🌸" },
+  { hiragana: ["か", "さ"], answer: "kasa", textHint: "You use this in the rain", emojiHint: "☂️" },
 ];
 
 export const jikoshoukaiInterests = [
