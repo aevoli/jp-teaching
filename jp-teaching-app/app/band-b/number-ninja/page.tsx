@@ -146,6 +146,13 @@ export default function NumberNinjaPage() {
             >
               Reset Scores
             </button>
+
+            <button
+              onClick={pickRandom}
+              className="w-full bg-red-500 hover:bg-red-600 active:scale-95 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all touch-manipulation"
+            >
+              はじめ！ — Hajime! (Start Game)
+            </button>
           </div>
         )}
       </div>
