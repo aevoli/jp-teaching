@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
 import Furigana from "@/components/Furigana";
@@ -12,6 +12,8 @@ export default function NumberNinjaPage() {
   const [revealed, setRevealed] = useState(false);
   const [lastWinner, setLastWinner] = useState<string | null>(null);
   const [mode, setMode] = useState<"learn" | "game">("learn");
+  const [countdown, setCountdown] = useState<number | null>(null);
+  const countdownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const pickRandom = useCallback(() => {
     const idx = Math.floor(Math.random() * numbers.length);
@@ -21,6 +23,20 @@ export default function NumberNinjaPage() {
     speak(numbers[idx].jp);
   }, []);
 
+  const startWithCountdown = () => {
+    setCountdown(3);
+    countdownRef.current = setTimeout(() => {
+      setCountdown(2);
+      countdownRef.current = setTimeout(() => {
+        setCountdown(1);
+        countdownRef.current = setTimeout(() => {
+          setCountdown(null);
+          pickRandom();
+        }, 900);
+      }, 900);
+    }, 900);
+  };
+
   const award = (team: "team1" | "team2") => {
     setScore((s) => ({ ...s, [team]: s[team] + 1 }));
     setLastWinner(team === "team1" ? "Team 1 🥷" : "Team 2 🥷");
@@ -29,7 +45,23 @@ export default function NumberNinjaPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 p-6 pt-20">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 p-6 pt-20 relative">
+      <AnimatePresence>
+        {countdown !== null && (
+          <motion.div
+            key={countdown}
+            initial={{ scale: 2, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          >
+            <span className="text-[12rem] font-black text-white drop-shadow-2xl leading-none">
+              {countdown}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
@@ -152,8 +184,9 @@ export default function NumberNinjaPage() {
             </button>
 
             <button
-              onClick={pickRandom}
-              className="w-full bg-red-500 hover:bg-red-600 active:scale-95 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all touch-manipulation"
+              onClick={startWithCountdown}
+              disabled={countdown !== null}
+              className="w-full bg-red-500 hover:bg-red-600 active:scale-95 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all touch-manipulation disabled:opacity-60"
             >
               はじめ！ — Hajime! (Start Game)
             </button>
