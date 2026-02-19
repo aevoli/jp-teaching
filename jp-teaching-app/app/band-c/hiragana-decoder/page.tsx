@@ -43,7 +43,7 @@ export default function HiraganaDecoderPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 p-6 pt-20">
       <BackButton />
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6">
           <h1 className="text-4xl font-black text-gray-900">
             <Furigana text="ひらがな" reading="hiragana" />
@@ -71,7 +71,7 @@ export default function HiraganaDecoderPage() {
         {mode === "learn" ? (
           <div className="space-y-4">
             <p className="text-center text-gray-600">Tap each character to hear how it sounds!</p>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid grid-cols-7 gap-3">
               {hiragana.map((h, i) => (
                 <motion.button
                   key={i}
@@ -86,7 +86,7 @@ export default function HiraganaDecoderPage() {
             </div>
             <div className="bg-indigo-50 rounded-2xl p-5 mt-4">
               <h3 className="font-black text-indigo-800 text-lg mb-2">🔑 Quick Reference</h3>
-              <div className="grid grid-cols-5 gap-2 text-center text-sm">
+              <div className="grid grid-cols-7 gap-2 text-center text-sm">
                 {hiragana.map((h, i) => (
                   <div key={i} className="bg-white rounded-xl p-2">
                     <span className="text-2xl font-black">{h.char}</span>
@@ -168,7 +168,7 @@ export default function HiraganaDecoderPage() {
 
             <div className="bg-white rounded-3xl shadow-lg p-5">
               <p className="text-center text-gray-600 font-bold mb-3">Tap the hiragana characters in order:</p>
-              <div className="grid grid-cols-5 gap-3">
+              <div className="grid grid-cols-7 gap-3">
                 {hiragana.map((h, i) => (
                   <motion.button
                     key={i}
