@@ -23,12 +23,12 @@ export const bodyParts = [
 ];
 
 export const foods = [
-  { en: "Sushi", jp: "すし", romaji: "Sushi", emoji: "🍣", price: "¥300" },
-  { en: "Ramen", jp: "ラーメン", romaji: "Raamen", emoji: "🍜", price: "¥500" },
-  { en: "Onigiri", jp: "おにぎり", romaji: "Onigiri", emoji: "🍙", price: "¥150" },
-  { en: "Mochi", jp: "もち", romaji: "Mochi", emoji: "🍡", price: "¥200" },
-  { en: "Tempura", jp: "てんぷら", romaji: "Tenpura", emoji: "🍤", price: "¥400" },
-  { en: "Edamame", jp: "えだまめ", romaji: "Edamame", emoji: "�", price: "¥100" },
-  { en: "Takoyaki", jp: "たこやき", romaji: "Takoyaki", emoji: "🐙", price: "¥350" },
-  { en: "Matcha", jp: "まっちゃ", romaji: "Matcha", emoji: "🍵", price: "¥250" },
+  { en: "Sushi", jp: "すし", romaji: "Sushi", emoji: "🍣", price: "¥300", desc: "Raw fish on rice" },
+  { en: "Ramen", jp: "ラーメン", romaji: "Raamen", emoji: "🍜", price: "¥500", desc: "Noodle soup" },
+  { en: "Onigiri", jp: "おにぎり", romaji: "Onigiri", emoji: "🍙", price: "¥150", desc: "Rice ball" },
+  { en: "Mochi", jp: "もち", romaji: "Mochi", emoji: "🍡", price: "¥200", desc: "Chewy rice cake" },
+  { en: "Tempura", jp: "てんぷら", romaji: "Tenpura", emoji: "🍤", price: "¥400", desc: "Crispy fried food" },
+  { en: "Yakitori", jp: "やきとり", romaji: "Yakitori", emoji: "🍢", price: "¥300", desc: "Grilled chicken skewer" },
+  { en: "Sugar Apple", jp: "シュガーアップル", romaji: "Shugaa Appuru", emoji: "🍏", price: "¥180", desc: "Sweet tropical fruit" },
+  { en: "Matcha", jp: "まっちゃ", romaji: "Matcha", emoji: "🍵", price: "¥250", desc: "Green tea drink" },
 ];
