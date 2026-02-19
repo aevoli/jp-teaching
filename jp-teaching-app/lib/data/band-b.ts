@@ -28,7 +28,7 @@ export const foods = [
   { en: "Onigiri", jp: "おにぎり", romaji: "Onigiri", emoji: "🍙", price: "¥150" },
   { en: "Mochi", jp: "もち", romaji: "Mochi", emoji: "🍡", price: "¥200" },
   { en: "Tempura", jp: "てんぷら", romaji: "Tenpura", emoji: "🍤", price: "¥400" },
-  { en: "Edamame", jp: "えだまめ", romaji: "Edamame", emoji: "🫛", price: "¥100" },
+  { en: "Edamame", jp: "えだまめ", romaji: "Edamame", emoji: "�", price: "¥100" },
   { en: "Takoyaki", jp: "たこやき", romaji: "Takoyaki", emoji: "🐙", price: "¥350" },
   { en: "Matcha", jp: "まっちゃ", romaji: "Matcha", emoji: "🍵", price: "¥250" },
 ];
