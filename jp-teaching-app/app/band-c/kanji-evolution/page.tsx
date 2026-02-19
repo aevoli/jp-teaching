@@ -88,8 +88,8 @@ export default function KanjiEvolutionPage() {
         </div>
 
         {mode === "explore" ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-1 space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            <div className="md:col-span-1 space-y-3 md:sticky md:top-4">
               <p className="font-bold text-gray-600 text-sm">Choose a kanji:</p>
               {kanji.map((k, i) => (
                 <button
