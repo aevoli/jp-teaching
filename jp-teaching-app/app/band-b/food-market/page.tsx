@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { foods } from "@/lib/data/band-b";
 
@@ -32,7 +33,10 @@ export default function FoodMarketPage() {
       <BackButton />
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-black text-gray-900">おみせやさん</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="おみせ" reading="omise" />
+            <Furigana text="やさん" reading="yasan" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Japanese Food Market</p>
           <p className="text-gray-500 mt-2">Learn to order food in Japanese!</p>
         </div>

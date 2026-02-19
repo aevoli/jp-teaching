@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { bodyParts } from "@/lib/data/band-b";
 
@@ -54,7 +55,10 @@ export default function HeadsShouldersPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-black text-gray-900">からだのうた</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="からだ" reading="karada" />
+            <Furigana text="のうた" reading="no uta" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Heads, Shoulders, Knees &amp; Toes</p>
           <p className="text-gray-500 mt-2">Learn the song in English, then try it in Japanese!</p>
         </div>

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { kanji } from "@/lib/data/band-c";
 
@@ -63,7 +64,10 @@ export default function KanjiEvolutionPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-black text-gray-900">かんじのひみつ</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="かんじ" reading="kanji" />
+            <Furigana text="のひみつ" reading="no himitsu" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Kanji Origins</p>
           <p className="text-gray-500 mt-2">Discover how Japanese writing evolved from ancient pictures!</p>
         </div>

@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { numbers } from "@/lib/data/band-b";
 
@@ -32,7 +33,10 @@ export default function NumberNinjaPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-black text-gray-900">かずゲーム</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="かず" reading="kazu" />
+            <span>ゲーム</span>
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Number Ninja</p>
         </div>
 

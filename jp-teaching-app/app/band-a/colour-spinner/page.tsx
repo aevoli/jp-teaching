@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { colours } from "@/lib/data/band-a";
 
@@ -35,7 +36,10 @@ export default function ColourSpinnerPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-black text-gray-900">いろさがし</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="いろ" reading="iro" />
+            <Furigana text="さがし" reading="sagashi" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Colour Hunt</p>
           <p className="text-gray-500 mt-2">Spin the wheel — then find something that colour in the room!</p>
         </div>

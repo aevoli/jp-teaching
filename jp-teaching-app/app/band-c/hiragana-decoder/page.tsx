@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { hiragana, secretMessages } from "@/lib/data/band-c";
 
@@ -44,7 +45,10 @@ export default function HiraganaDecoderPage() {
       <BackButton />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-black text-gray-900">ひらがなたんてい</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="ひらがな" reading="hiragana" />
+            <Furigana text="たんてい" reading="tantei" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Hiragana Detective</p>
           <p className="text-gray-500 mt-2">Learn the characters, then crack the secret code!</p>
         </div>

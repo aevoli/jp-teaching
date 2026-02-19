@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { greetings } from "@/lib/data/band-a";
 
@@ -26,7 +27,10 @@ export default function GreetingsKaraokePage() {
       <BackButton />
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-black text-gray-900">あいさつのうた</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="あいさつ" reading="aisatsu" />
+            <Furigana text="のうた" reading="no uta" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Greetings Song</p>
           <p className="text-gray-500 mt-2">Learn Japanese greetings with actions!</p>
         </div>

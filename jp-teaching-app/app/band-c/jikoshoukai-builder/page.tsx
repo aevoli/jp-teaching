@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { jikoshoukaiInterests } from "@/lib/data/band-c";
 
@@ -53,7 +54,9 @@ export default function JikoshoukaiBuilderPage() {
       <BackButton />
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-black text-gray-900">じこしょうかい</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="じこしょうかい" reading="jikoshoukai" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Self-Introduction Builder</p>
           <p className="text-gray-500 mt-2">Build your Japanese introduction and present to the class!</p>
         </div>

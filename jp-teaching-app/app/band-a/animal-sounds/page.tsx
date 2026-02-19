@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "@/components/BackButton";
+import Furigana from "@/components/Furigana";
 import { speak } from "@/lib/audio";
 import { animals } from "@/lib/data/band-a";
 
@@ -26,7 +27,10 @@ export default function AnimalSoundsPage() {
       <BackButton />
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-black text-gray-900">どうぶつのこえ</h1>
+          <h1 className="text-4xl font-black text-gray-900">
+            <Furigana text="どうぶつ" reading="animal" />
+            <Furigana text="のこえ" reading="no koe" />
+          </h1>
           <p className="text-2xl font-bold text-gray-600 mt-1">Animal Sounds</p>
           <p className="text-gray-500 mt-2">Tap an animal to hear its Japanese name, then reveal its sound!</p>
         </div>
