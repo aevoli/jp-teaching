@@ -129,12 +129,12 @@ function OrderingGame() {
               draggable
               onDragStart={(e) => {
                 setDragging(f.jp);
-                const dragDiv = (e.target as HTMLElement).closest("div");
-                if (dragDiv && e.dataTransfer) {
-                  e.dataTransfer.effectAllowed = "move";
+                const dragEvent = e as unknown as DragEvent;
+                if (dragEvent.dataTransfer) {
+                  dragEvent.dataTransfer.effectAllowed = "move";
                   const img = new Image();
                   img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%23f59e0b' rx='15' width='80' height='80'/%3E%3Ctext x='40' y='45' font-size='40' text-anchor='middle' dominant-baseline='middle'%3E" + encodeURIComponent(f.emoji) + "%3C/text%3E%3C/svg%3E";
-                  e.dataTransfer.setDragImage(img, 40, 40);
+                  dragEvent.dataTransfer.setDragImage(img, 40, 40);
                 }
               }}
               onDragEnd={() => setDragging(null)}
