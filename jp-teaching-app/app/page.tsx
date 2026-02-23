@@ -37,7 +37,6 @@ export default function Home() {
         <div className="text-7xl mb-4">🇯🇵</div>
         <h1 className="text-5xl font-black text-gray-900 mb-2">にほんご</h1>
         <p className="text-2xl font-bold text-gray-600">Japanese Lessons</p>
-        <p className="text-lg text-gray-500 mt-2">Choose your class group to begin</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
@@ -47,8 +46,6 @@ export default function Home() {
               <div>
                 <div className="text-6xl mb-4">{band.emoji}</div>
                 <h2 className="text-3xl font-black mb-1">{band.label}</h2>
-                <p className="text-xl font-bold opacity-90">{band.years}</p>
-                <p className="text-lg opacity-75">{band.ages}</p>
               </div>
               <div className="mt-6 space-y-1">
                 {band.activities.map((a) => (
@@ -60,6 +57,29 @@ export default function Home() {
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-16 w-full max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link href="/band-c/katakana-explorer">
+            <div className="bg-gradient-to-br from-orange-400 via-red-400 to-red-500 rounded-3xl p-8 text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer touch-manipulation min-h-56 flex flex-col justify-between">
+              <div>
+                <div className="text-6xl mb-3">カタカナ</div>
+                <h2 className="text-3xl font-black mb-2">Katakana Explorer</h2>
+                <p className="text-lg opacity-90">Learn all katakana characters with audio</p>
+              </div>
+            </div>
+          </Link>
+          <Link href="/tongue-twisters">
+            <div className="bg-gradient-to-br from-purple-400 via-pink-400 to-rose-500 rounded-3xl p-8 text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer touch-manipulation min-h-56 flex flex-col justify-between">
+              <div>
+                <div className="text-6xl mb-3">🎯</div>
+                <h2 className="text-3xl font-black mb-2">Tongue Twisters!</h2>
+                <p className="text-lg opacity-90">Try fun Japanese sayings that are super tricky</p>
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
 
       <p className="mt-12 text-gray-400 text-sm">Tap a band to see the 3 activity choices</p>

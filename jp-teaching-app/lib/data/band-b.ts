@@ -15,7 +15,7 @@ export const bodyParts = [
   { en: "Head", jp: "あたま", romaji: "Atama", emoji: "🧠" },
   { en: "Shoulders", jp: "かた", romaji: "Kata", emoji: "💪" },
   { en: "Knees", jp: "ひざ", romaji: "Hiza", emoji: "🦵" },
-  { en: "Toes", jp: "つまさき", romaji: "Tsumasaki", emoji: "🦶" },
+  { en: "Toes", jp: "あし", romaji: "Ashi", emoji: "🦶" },
   { en: "Eyes", jp: "め", romaji: "Me", emoji: "👀" },
   { en: "Ears", jp: "みみ", romaji: "Mimi", emoji: "👂" },
   { en: "Mouth", jp: "くち", romaji: "Kuchi", emoji: "👄" },

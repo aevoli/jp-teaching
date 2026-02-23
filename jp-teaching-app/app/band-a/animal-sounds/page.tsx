@@ -104,21 +104,30 @@ export default function AnimalSoundsPage() {
           <>
             <div className="grid grid-cols-3 md:grid-cols-5 gap-5 mb-8">
               {animals.map((animal, idx) => (
-                <motion.button
+                <motion.div
                   key={idx}
                   whileTap={{ scale: 0.93 }}
-                  onClick={() => handleAnimalTap(idx)}
-                  className={`rounded-3xl p-6 flex flex-col items-center gap-3 shadow-lg transition-all touch-manipulation border-4 ${
+                  className={`rounded-3xl p-6 flex flex-col items-center gap-3 shadow-lg transition-all touch-manipulation border-4 cursor-pointer ${
                     selected === idx
                       ? "border-green-500 bg-green-100 shadow-green-200"
                       : "border-transparent bg-white hover:bg-green-50"
                   }`}
+                  onClick={() => handleAnimalTap(idx)}
                 >
                   <span className="text-6xl">{animal.emoji}</span>
                   <span className="text-2xl font-black text-gray-800">{animal.jp}</span>
                   <span className="text-lg font-bold text-green-700">{animal.romaji}</span>
                   <span className="text-base text-gray-500">{animal.en}</span>
-                </motion.button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      speak(animal.sound);
+                    }}
+                    className="mt-2 bg-green-500 hover:bg-green-600 active:scale-95 text-white font-bold px-3 py-1 rounded-lg text-sm transition-all touch-manipulation"
+                  >
+                    🔊 {animal.sound}
+                  </button>
+                </motion.div>
               ))}
             </div>
 

@@ -11,6 +11,14 @@ const activities = [
     bg: "from-indigo-500 to-blue-600",
   },
   {
+    href: "/band-c/katakana-explorer",
+    emoji: "🔤",
+    title: "Katakana Explorer",
+    titleJp: "カタカナ",
+    desc: "Learn all katakana characters used for foreign words!",
+    bg: "from-orange-500 to-red-600",
+  },
+  {
     href: "/band-c/jikoshoukai-builder",
     emoji: "🎤",
     title: "Self-Introduction",
@@ -39,7 +47,7 @@ export default function BandCPage() {
         <p className="text-lg text-gray-500 mt-2">Choose an activity — vote by raising your hand!</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl">
         {activities.map((act) => (
           <Link key={act.href} href={act.href}>
             <div className={`bg-gradient-to-br ${act.bg} rounded-3xl p-8 text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer touch-manipulation min-h-56 flex flex-col justify-between`}>

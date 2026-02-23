@@ -128,7 +128,7 @@ export default function HeadsShouldersPage() {
             <div className="bg-white rounded-2xl shadow p-5 text-center">
               <p className="font-black text-gray-700 mb-2">🎵 Song order in Japanese:</p>
               <p className="text-xl text-gray-600">あたま → かた → ひざ → つまさき → め → みみ → くち → はな</p>
-              <p className="text-base text-blue-600 mt-1">Atama → Kata → Hiza → Tsumasaki → Me → Mimi → Kuchi → Hana</p>
+              <p className="text-base text-blue-600 mt-1">Atama → Kata → Hiza → Ashi → Me → Mimi → Kuchi → Hana</p>
             </div>
           </div>
         )}
